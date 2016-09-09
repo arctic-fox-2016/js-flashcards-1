@@ -8,7 +8,7 @@ let input = 0
 class Soal {
   static promptjawaban(){
     prompt.get('jawaban',function(err, result){
-      if (result.jawaban == data[input].term){
+      if (result.jawaban.toLowerCase() == data[input].term.toLowerCase()){
         console.log("Anda benar, ayo lanjut ke pertanyaan berikutnya")
         input++
         Soal.queue(data.length)
