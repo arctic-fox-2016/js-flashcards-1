@@ -1,6 +1,5 @@
-'use strict'
+"use strict"
 // write your code here
-
 const readline = require('readline')
 const rl = readline.createInterface({
   input: process.stdin,
@@ -17,28 +16,20 @@ class Ask {
 
 
     rl.question(q1[value].definition.toLowerCase(), (answer) => {
-      if (q1[value] != q1.length) {
+      if (value < q1.length - 1) {
         if (answer.toLowerCase() == q1[value].term.toLowerCase()) {
           Pertanyaan.betul()
         } else {
           Pertanyaan.salah()
         }
       } else {
-        Quit.quit()
+        console.log('Selamat kamu menang !');
+        console.log(`Poin kamu adalah : ${poin}`);
+        rl.close()
       }
-
     });
-
   }
 }
-
-class Quit {
-  static quit() {
-    lo
-
-  }
-}
-
 class Pertanyaan {
   static betul() {
     for (let i = 0; i < 200; i++) {
@@ -58,99 +49,5 @@ class Pertanyaan {
     Ask.ques_1();
   }
 }
-//   static ques_2() {
-//     rl.question(q1[1].definition.toLowerCase(), (answer) => {
-//       if (answer.toLowerCase() == q1[1].term.toLowerCase()) {
-//         console.log('Anda betul lagi')
-//         Ask.ques_3() //, answer);
-//
-//       } else {
-//         console.log('Anda salah, coba lagi');
-//         Ask.ques_2()
-//       }
-//     })
-//   }
-//   static ques_3() {
-//     rl.question(q1[2].definition.toLowerCase(), (answer) => {
-//       if (answer.toLowerCase() == q1[2].term.toLowerCase()) {
-//         console.log('Anda betul lagi')
-//         Ask.ques_4() //, answer);
-//
-//       } else {
-//         console.log('Anda salah, coba lagi');
-//         Ask.ques_3()
-//       }
-//     })
-//   }
-//   static ques_4() {
-//     rl.question(q1[3].definition.toLowerCase(), (answer) => {
-//       if (answer.toLowerCase() == q1[3].term.toLowerCase()) {
-//         console.log('Anda betul lagi')
-//         Ask.ques_5() //, answer);
-//
-//       } else {
-//         console.log('Anda salah, coba lagi');
-//         Ask.ques_4()
-//       }
-//     })
-//   }
-//   static ques_5() {
-//     rl.question(q1[4].definition.toLowerCase(), (answer) => {
-//       if (answer.toLowerCase() == q1[4].term.toLowerCase()) {
-//         console.log('Anda betul lagi')
-//         Ask.ques_6() //, answer);
-//
-//       } else {
-//         console.log('Anda salah, coba lagi');
-//         Ask.ques_5()
-//       }
-//     })
-//   }
-//   static ques_6() {
-//     rl.question(q1[5].definition.toLowerCase(), (answer) => {
-//       if (answer.toLowerCase() == q1[5].term.toLowerCase()) {
-//         console.log('Anda betul lagi')
-//         rl.close()
-//       } else {
-//         console.log('Anda salah, coba lagi');
-//         Ask.ques_6()
-//       }
-//     })
-//   }
-// }
+
 Ask.ques_1()
-  // Ask.ques_2()
-class Flashcards {
-
-  static init_questions() {
-    Flashcards.questions = JSON.parse(fs.readFileSync('data.json'))
-  }
-
-  static play() {
-    Flashcards.score = 100
-    Flashcards.quest(Flashcards.questions, 0)
-  }
-
-  static quest(flash_ques, idx) {
-    let answered = false
-    if (idx < flash_ques.length) {
-      rl.question(flash_ques[idx].definition + " :", (user_ans) => {
-        if (flash_ques[idx].term.toLowerCase() == user_ans.toLowerCase()) {
-          console.log("thats it!!")
-          Flashcards.quest(Flashcards.questions, idx + 1)
-        } else {
-          console.log("It's not that hard man!!");
-          Flashcards.score -= 5
-          Flashcards.quest(flash_ques, idx)
-        }
-      })
-    } else {
-      console.log(`Your's score is ${Flashcards.score}`)
-      rl.close()
-    }
-  }
-
-}
-
-Flashcards.init_questions()
-Flashcards.play()
