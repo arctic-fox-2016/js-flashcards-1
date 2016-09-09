@@ -14,7 +14,7 @@ let i = 0
 class Generic {
   static promptAnswer(){
     prompt.get('answer',function(err, result){
-      if (result.answer == quiz[i].term){
+      if (result.answer.toLowerCase() == quiz[i].term.toLowerCase()){
         console.log("Jawaban anda benar")
         i++
         Generic.checkIndexRun(quiz.length)
