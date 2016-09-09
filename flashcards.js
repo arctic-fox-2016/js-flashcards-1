@@ -9,7 +9,7 @@ let kesempatan = 0
 class FlashCard {
   static promptAnswer(){
     prompt.get('answer',function(err, result){
-      if (result.answer == soal[i].term){
+      if (result.answer.toLowerCase() == soal[i].term.toLowerCase()){
         console.log("Jawaban anda benar")
         i++
         FlashCard.cetakSoal(soal.length)
