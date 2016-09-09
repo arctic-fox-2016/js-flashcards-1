@@ -41,3 +41,5 @@ class Generic {
   //Create smaller method to check the answer, and give the statement
 
 Generic.checkIndexRun(quiz.length)
+
+//
